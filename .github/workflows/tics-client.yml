@@ -1,6 +1,9 @@
 name: TICS Client
 
-on: [pull_request]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   TICS:
@@ -17,7 +20,7 @@ jobs:
         env:
           INPUT_GITHUBTOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: TICS GitHub Action
-        uses: tiobe/tics-github-action@v4
+        uses: ./
         with:
           project: GitHub
           viewerUrl: https://eboit.tiobe.com/tiobeweb/TICS/api/cfg?name=main
