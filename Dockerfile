@@ -9,6 +9,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
+RUN npm install --no-save --omit=dev quickjs-wasi
 COPY dist/* .
 
 ENTRYPOINT ["node", "/app/index.js"]
